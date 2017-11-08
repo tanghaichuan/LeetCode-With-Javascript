@@ -21,8 +21,12 @@ function packageMaxValue(weight, value, size) {
       // 不带：F[i,j-1] 从剩下的物品中找出最大值
       // 带：F[i-w[j],j-1] + value[j] 去掉所带物品的价值，求剩下物品的最大值
       // 求带与不带的最大值
-      // 物品数量递增 从下到上 从左到右
+      // 背包容量递增 从下到上 从左到右  如容量为8时，F[i,j-1]=F[8,b]=9，F[i-wi,j-1]+Pi=F[6,b]+6=9+6=15，两种情况取最大值
       maxtrix[i][j] = Math.max((maxtrix[i - weight[j]][j - 1] || 0) + value[j], maxtrix[i][j - 1] || 0)
+    }
+    if (i === size) {
+      // 
+      // 最大价值F(a, 10)
     }
   }
   return maxtrix
